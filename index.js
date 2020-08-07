@@ -2,27 +2,18 @@ const express = require("express")
 const app = express();
 
 app.set("view engine", 'ejs');
+app.use(express.static('public'));
 
-app.get("/:nome/:lang", (req, res)=>{
-    let nome= req.params.nome;
-    let lang=req.params.lang;
-    let exibirMsg = true;
+app.get("/", (req, res)=>{  
+    res.render("index")      
+})
 
-    let produtos = [
-        {nome: "Valmyr", idade: 49, nacionalidade: "Frances"},
-        {nome: "Vania", idade: 29, nacionalidade: "Hungara"},
-        {nome: "Michelle", idade: 19, nacionalidade: "Italiana"},
-    ]
+app.get("/perguntar", (req, res) => {
+    res.render("perguntar")
+})
 
-
-    res.render("index",{
-        nome: nome,
-        lang: lang,
-        empresa: "Guia do Programador", 
-        inscrito : 8000,
-        msg: exibirMsg,
-        produtos:produtos
-    })
+app.post("/salvarpergunta", (req, res)=>{
+    res.send("Formulario recebido")
 })
 
 
