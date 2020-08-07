@@ -20,5 +20,17 @@
         <%}else{%>
             <h1>Nenhum erro</h1>
             <%}%>
+            <hr>
+
+            <% produtos.forEach(function(prod) { %>
+                <h1>Nome: <%= prod.nome%></h1>
+                <p>idade:  <%= prod.idade%> </p>
+                <p>Nacionalidade:  <%= prod.nacionalidade%> </p>         
+            <% }) %>
+               
+          
+
+
+           
 </body>
 </html>
